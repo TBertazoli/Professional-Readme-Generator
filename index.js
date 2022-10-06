@@ -1,10 +1,11 @@
 // TODO: Include packages needed for this application
 const inquirer = require('inquirer');
-// const generateMarkdown = require('./utils/generateMarkdown');
+const fs = require('fs');
+const generateMarkdown = require('./utils/generateMarkdown');
 
 // TODO: Create an array of questions for user input
-const questions = () => {
-    return inquirer.prompt([
+let questions =
+    inquirer.prompt([
         {
             type: 'input',
             name: 'name',
@@ -35,13 +36,7 @@ const questions = () => {
             type: 'input',
             name: 'installation',
             message: 'What are the steps required to install your project'
-            // validate: descriptionInput => {
-            //     if (descriptionInput) {
-            //         return true;
-            //     } else {
-            //         console.log('You need to enter a project description!');
-            //         return false;
-            //     }
+
         },
         {
             type: 'input',
@@ -63,24 +58,56 @@ const questions = () => {
             name: 'test',
             message: 'Please provide examples on how to run test for your application'
         },
-          {
+        {
+            type: 'confirm',
+            name: 'confirmContribution',
+            message: 'Would you like to contribute with this project?',
+            default: false
+        },
+        {
             type: 'input',
-            name: 'contributing',
-            message: 'Would you like to contribute with this project'
-        }
-                  {
+            name: 'contribution',
+            message: 'What you would like to contribute?',
+            when: ({ confirmContribution }) => confirmContribution
+        },
+        {
+            type: 'confirm',
+            name: 'confirmQuestions',
+            message: 'Do you have any questions about this project?',
+            default: false
+        },
+        {
             type: 'input',
-            name: 'questions',
-            message: 'Do you have any questions about this project?'
+            name: 'Questions',
+            message: 'What is your question?',
+            when: ({ confirmQuestion }) => confirmQuestion
         }
+    ])   
 
-    ]);
+// TODO: Create a function to write README file
+const writeToFile = (questions, data) => {    
+    return new Promise((resolve, reject) => {
+        fs.writeFile('./dist/README.md', data, err => {
+            if (err) {
+                reject(err);
+                return;
+            }
+            resolve({
+                ok: true,
+                message: 'README created!'
+            });
+        });
+    });
+}
 
-    // TODO: Create a function to write README file
-    function writeToFile(fileName, data) { }
+// TODO: Create a function to initialize app
+function init() {
 
-    // TODO: Create a function to initialize app
-    function init() { }
+            }
 
-    // Function call to initialize app
-    init();
+// Function call to initialize app
+init()
+.then(question => {
+    return 
+})
+
