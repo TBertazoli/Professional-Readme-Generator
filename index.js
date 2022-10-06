@@ -84,15 +84,15 @@ const prompQuestions = () => {
             when: ({ confirmQuestion }) => confirmQuestion
         }
     ])
-    .then(results => {        
-        return results;
-    })
+        .then(results => {
+            return results;
+        })
 }
 
 // TODO: Create a function to write README file
-const writeToFile = (questions, data) => {
+const writeToFile = (readme, results) => {
     return new Promise((resolve, reject) => {
-        fs.writeFile('./dist/README.md', questions, data, err => {
+        fs.writeFile('./dist/README.md', readme, results, err => {
             if (err) {
                 reject(err);
                 return;
@@ -108,10 +108,13 @@ const writeToFile = (questions, data) => {
 // TODO: Create a function to initialize app
 function init() {
     prompQuestions()
-    .then(results => {        
-        generateReadme(results);
-        console.log(generateReadme(results));
-    })
+        .then(results => {
+            return generateReadme(results);
+            console.log(generateReadme(results));
+        })
+        .then(readme => {
+            return writeToFile(readme);
+        })
 
 }
 
