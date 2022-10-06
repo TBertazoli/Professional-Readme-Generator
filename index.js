@@ -2,13 +2,14 @@
 const inquirer = require('inquirer');
 const fs = require('fs');
 const generateMarkdown = require('./utils/generateMarkdown');
+const generateReadme = require('./src/readme-template');
 
 // TODO: Create an array of questions for user input
-let questions =
-    inquirer.prompt([
+const prompQuestions = () => {
+    return inquirer.prompt([
         {
             type: 'input',
-            name: 'name',
+            name: 'projectName',
             message: 'What is your Project name? (Required)',
             validate: projectTitle => {
                 if (projectTitle) {
@@ -82,12 +83,16 @@ let questions =
             message: 'What is your question?',
             when: ({ confirmQuestion }) => confirmQuestion
         }
-    ])   
+    ])
+    .then(results => {        
+        return results;
+    })
+}
 
 // TODO: Create a function to write README file
-const writeToFile = (questions, data) => {    
+const writeToFile = (questions, data) => {
     return new Promise((resolve, reject) => {
-        fs.writeFile('./dist/README.md', data, err => {
+        fs.writeFile('./dist/README.md', questions, data, err => {
             if (err) {
                 reject(err);
                 return;
@@ -102,12 +107,14 @@ const writeToFile = (questions, data) => {
 
 // TODO: Create a function to initialize app
 function init() {
+    prompQuestions()
+    .then(results => {        
+        generateReadme(results);
+        console.log(generateReadme(results));
+    })
 
-            }
+}
 
 // Function call to initialize app
 init()
-.then(question => {
-    return 
-})
 
