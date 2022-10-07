@@ -9,7 +9,7 @@ const prompQuestions = () => {
     return inquirer.prompt([
         {
             type: 'input',
-            name: 'projectName',
+            name: 'projectTitle',
             message: 'What is your Project name? (Required)',
             validate: projectTitle => {
                 if (projectTitle) {
@@ -20,74 +20,103 @@ const prompQuestions = () => {
                 }
             }
         },
-        {
-            type: 'input',
-            name: 'description',
-            message: 'Please provide a short description of the project explaining the what, why, and how of your project. (Required)',
-            validate: descriptionInput => {
-                if (descriptionInput) {
-                    return true;
-                } else {
-                    console.log('You need to enter a project description!');
-                    return false;
-                }
-            }
-        },
-        {
-            type: 'input',
-            name: 'installation',
-            message: 'What are the steps required to install your project'
+        // {
+        //     type: 'input',
+        //     name: 'description',
+        //     message: 'Please provide a short description of the project explaining the what, why, and how of your project. (Required)',
+        //     validate: descriptionInput => {
+        //         if (descriptionInput) {
+        //             return true;
+        //         } else {
+        //             console.log('You need to enter a project description!');
+        //             return false;
+        //         }
+        //     }
+        // },
+        // {
+        //     type: 'input',
+        //     name: 'installation',
+        //     message: 'What are the steps required to install your project'
 
-        },
+        // },
+        // {
+        //     type: 'input',
+        //     name: 'usage',
+        //     message: 'Provide instructions and examples for use. Include screenshots as needed.'
+        // },
+        // {
+        //     type: 'input',
+        //     name: 'credits',
+        //     message: 'List your collaborators, if any.'
+        // },
         {
-            type: 'input',
-            name: 'usage',
-            message: 'Provide instructions and examples for use. Include screenshots as needed.'
+            type: 'list',
+            name: 'license',
+            message: ' Choose the license used for this project. This lets other developers know what they can do and cannot do with your project',
+            choices: ['MIT', 'Apache', 'BSD-3', 'BSD-2', 'ISC'],
         },
-        {
-            type: 'input',
-            name: 'credits',
-            message: 'List your collaborators, if any.'
-        },
-        {
-            type: 'input',
-            name: 'licence',
-            message: 'Enter the license used for this project. This lets other developers know what they can do and cannot do with your project'
-        },
-        {
-            type: 'input',
-            name: 'test',
-            message: 'Please provide examples on how to run test for your application'
-        },
-        {
-            type: 'confirm',
-            name: 'confirmContribution',
-            message: 'Would you like to contribute with this project?',
-            default: false
-        },
-        {
-            type: 'input',
-            name: 'contribution',
-            message: 'What you would like to contribute?',
-            when: ({ confirmContribution }) => confirmContribution
-        },
-        {
-            type: 'confirm',
-            name: 'confirmQuestions',
-            message: 'Do you have any questions about this project?',
-            default: false
-        },
-        {
-            type: 'input',
-            name: 'Questions',
-            message: 'What is your question?',
-            when: ({ confirmQuestion }) => confirmQuestion
-        }
+        // {
+        //     type: 'input',
+        //     name: 'test',
+        //     message: 'Please provide a description on how to run test for your application'
+        // },
+        // {
+        //     type: 'confirm',
+        //     name: 'confirmContribution',
+        //     message: 'Would you like to contribute with this project?',
+        //     default: false
+        // },
+        // {
+        //     type: 'input',
+        //     name: 'contribution',
+        //     message: 'How would like to contribute?',
+        //     when: ({ confirmContribution }) => confirmContribution
+        // },
+        // {
+        //     type: 'input',
+        //     name: 'gitHub',
+        //     message: 'What is your GitHub username (Required)',
+        //     validate: userName => {
+        //         if (userName) {
+        //             return true;
+        //         } else {
+        //             console.log('You need to enter a Username!');
+        //             return false;
+        //         }
+        //     }
+        // },
+        // {
+        //     type: 'input',
+        //     name: 'link',
+        //     message: 'Enter your GitHub link. (Required)',
+        //     validate: linkInput => {
+        //         if (linkInput) {
+        //             return true;
+        //         } else {
+        //             console.log('You need to enter your GitHub link!');
+        //             return false;
+        //         }
+        //     }
+        // },
+        // {
+        //     type: 'input',
+        //     name: 'email',
+        //     message: 'Enter your email. (Required)',
+        //     validate: emailinput => {
+        //         if (emailinput) {
+        //             return true;
+        //         } else {
+        //             console.log('You need to enter your email!');
+        //             return false;
+        //         }
+        //     }
+        // },
     ])
-        .then(results => {
+        .then(results => {            
             return results;
         })
 }
+
 
 // TODO: Create a function to write README file
 const writeToFile = (readme, results) => {
@@ -109,13 +138,14 @@ const writeToFile = (readme, results) => {
 function init() {
     prompQuestions()
         .then(results => {
+            return generateMarkdown(results.license);
+        })
+        .then(results => {
             return generateReadme(results);
-            console.log(generateReadme(results));
         })
         .then(readme => {
             return writeToFile(readme);
         })
-
 }
 
 // Function call to initialize app
