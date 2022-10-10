@@ -20,99 +20,91 @@ const prompQuestions = () => {
                 }
             }
         },
-        // {
-        //     type: 'input',
-        //     name: 'description',
-        //     message: 'Please provide a short description of the project explaining the what, why, and how of your project. (Required)',
-        //     validate: descriptionInput => {
-        //         if (descriptionInput) {
-        //             return true;
-        //         } else {
-        //             console.log('You need to enter a project description!');
-        //             return false;
-        //         }
-        //     }
-        // },
-        // {
-        //     type: 'input',
-        //     name: 'installation',
-        //     message: 'What are the steps required to install your project'
-
-        // },
-        // {
-        //     type: 'input',
-        //     name: 'usage',
-        //     message: 'Provide instructions and examples for use. Include screenshots as needed.'
-        // },
-        // {
-        //     type: 'input',
-        //     name: 'credits',
-        //     message: 'List your collaborators, if any.'
-        // },
+        {
+            type: 'input',
+            name: 'description',
+            message: 'Please provide a short description of your project. (Required)',
+            validate: descriptionInput => {
+                if (descriptionInput) {
+                    return true;
+                } else {
+                    console.log('You need to enter a project description!');
+                    return false;
+                }
+            }
+        },
+        {
+            type: 'input',
+            name: 'installation',
+            message: 'What are the steps required to install your project',
+        },
+        {
+            type: 'input',
+            name: 'usage',
+            message: 'Provide instructions and examples for use, if any.'
+        },
+        {
+            type: 'input',
+            name: 'credits',
+            message: 'List your collaborators, if any.'
+        },
         {
             type: 'list',
             name: 'license',
             message: ' Choose the license used for this project. This lets other developers know what they can do and cannot do with your project',
             choices: ['MIT', 'Apache', 'BSD-3', 'BSD-2', 'ISC', 'None'],
         },
-        // {
-        //     type: 'input',
-        //     name: 'test',
-        //     message: 'Please provide a description on how to run test for your application'
-        // },
-        // {
-        //     type: 'confirm',
-        //     name: 'confirmContribution',
-        //     message: 'Would you like to contribute with this project?',
-        //     default: false
-        // },
-        // {
-        //     type: 'input',
-        //     name: 'contribution',
-        //     message: 'How would like to contribute?',
-        //     when: ({ confirmContribution }) => confirmContribution
-        // },
-        // {
-        //     type: 'input',
-        //     name: 'gitHub',
-        //     message: 'What is your GitHub username (Required)',
-        //     validate: userName => {
-        //         if (userName) {
-        //             return true;
-        //         } else {
-        //             console.log('You need to enter a Username!');
-        //             return false;
-        //         }
-        //     }
-        // },
-        // {
-        //     type: 'input',
-        //     name: 'link',
-        //     message: 'Enter your GitHub link. (Required)',
-        //     validate: linkInput => {
-        //         if (linkInput) {
-        //             return true;
-        //         } else {
-        //             console.log('You need to enter your GitHub link!');
-        //             return false;
-        //         }
-        //     }
-        // },
-        // {
-        //     type: 'input',
-        //     name: 'email',
-        //     message: 'Enter your email. (Required)',
-        //     validate: emailinput => {
-        //         if (emailinput) {
-        //             return true;
-        //         } else {
-        //             console.log('You need to enter your email!');
-        //             return false;
-        //         }
-        //     }
-        // },
+        {
+            type: 'input',
+            name: 'test',
+            message: 'Please provide a description on how to run test for your application'
+        },
+        {
+            type: 'input',
+            name: 'contibution',
+            message: 'How you would like other users to contribute to your project?',
+        },
+        {
+            type: 'input',
+            name: 'gitHub',
+            message: 'What is your GitHub username (Required)',
+            validate: userName => {
+                if (userName) {
+                    return true;
+                } else {
+                    console.log('You need to enter a Username!');
+                    return false;
+                }
+            }
+        },
+        {
+            type: 'input',
+            name: 'link',
+            message: 'Enter your GitHub link. (Required)',
+            validate: linkInput => {
+                if (linkInput) {
+                    return true;
+                } else {
+                    console.log('You need to enter your GitHub link!');
+                    return false;
+                }
+            }
+        },
+        {
+            type: 'input',
+            name: 'email',
+            message: 'Enter your email. (Required)',
+            validate: emailinput => {
+                if (emailinput) {
+                    return true;
+                } else {
+                    console.log('You need to enter your email!');
+                    return false;
+                }
+            }
+        },
     ])
-        .then(results => {            
+        .then(results => {
             return results;
         })
 }

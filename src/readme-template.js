@@ -1,11 +1,10 @@
-// const renderLicenseSection = require('./utils/generateMarkdown');
-
-
 const generateReadme = results => {
     console.log(results);
     return `     
       
-   # ${results.projectTitle}   
+   # ${results.projectTitle}  
+
+   ${results.badge} 
 
    ## Description
    ${results.description}
@@ -15,30 +14,33 @@ const generateReadme = results => {
    - [Usage](#usage)
    - [Credits](#credits)
    - [License](#license)
-   - [Contribution](#Contribution)
+   - [Contribution](#contribution)
+   - [Questions](#questions)
 
-   ## Instalation
-   ${results.installation}
+   ## Installation
+   ${results.installation || 'N/A'}
    
    ## Usage
-   ${results.usage}
+   ${results.usage || 'N/A'}
    
    ## Credits
-   ${results.credits}
-   
+   ${results.credits || 'N/A'}
+  
    ## License
-   ${results.badge}
+   ${ results.license !== "None" ? "This application is covered under " + results.license + " license." : "N/A"}
    
+
    ${results.licenseLink}
-   
+
    ## Contribution
-   ${results.contribution}
+   ${results.contribution || 'N/A'}   
+ 
    
    ## Test
-   ${results.test}
+   ${results.test || 'N/A'}
 
    ## Questions
-   For questions please contact ${results.github}.
+   For questions please contact ${results.gitHub}.
 
    GitHub link: ${results.link}
    
@@ -48,4 +50,3 @@ const generateReadme = results => {
 
 module.exports = generateReadme;
 
-//    ${renderLicenseSection()}
