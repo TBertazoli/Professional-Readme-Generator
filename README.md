@@ -3,7 +3,7 @@
     
 
    ## Description
-   This project is a readme generator written with node.js. The user will go though a series of questions using the inquirer NPM package and the answers will generete an readme file with license badge and license link.
+   This project is a readme generator written with node.js. The user will go though a series of questions using the inquirer NPM package and the answers will generete a readme file with license badge and license link.
     
    ## Table of contents
    - [Installation](#installation)
@@ -11,6 +11,7 @@
    - [Credits](#credits)
    - [License](#license)
    - [Contribution](#contribution)
+   - [Test](#test)
    - [Questions](#questions)
 
    ## Installation

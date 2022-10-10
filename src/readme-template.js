@@ -15,6 +15,7 @@ const generateReadme = results => {
    - [Credits](#credits)
    - [License](#license)
    - [Contribution](#contribution)
+   - [Test](#test)
    - [Questions](#questions)
 
    ## Installation
