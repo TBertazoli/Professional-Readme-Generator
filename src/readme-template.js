@@ -1,5 +1,10 @@
+// const renderLicenseSection = require('./utils/generateMarkdown');
+
+
 const generateReadme = results => {
-    return `    
+    console.log(results);
+    return `     
+      
    # ${results.projectTitle}   
 
    ## Description
@@ -21,8 +26,10 @@ const generateReadme = results => {
    ## Credits
    ${results.credits}
    
-   ## Licence
-   ${results.licence}
+   ## License
+   ${results.badge}
+   
+   ${results.licenseLink}
    
    ## Contribution
    ${results.contribution}
@@ -40,3 +47,5 @@ const generateReadme = results => {
 }
 
 module.exports = generateReadme;
+
+//    ${renderLicenseSection()}

@@ -53,7 +53,7 @@ const prompQuestions = () => {
             type: 'list',
             name: 'license',
             message: ' Choose the license used for this project. This lets other developers know what they can do and cannot do with your project',
-            choices: ['MIT', 'Apache', 'BSD-3', 'BSD-2', 'ISC'],
+            choices: ['MIT', 'Apache', 'BSD-3', 'BSD-2', 'ISC', 'None'],
         },
         // {
         //     type: 'input',
@@ -138,7 +138,7 @@ const writeToFile = (readme, results) => {
 function init() {
     prompQuestions()
         .then(results => {
-            return generateMarkdown(results.license);
+            return generateMarkdown(results);
         })
         .then(results => {
             return generateReadme(results);
