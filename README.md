@@ -40,7 +40,7 @@
    N/A
 
    ## Questions
-   For questions please contact TBertazoli.
+   For questions please contact https://github.com/TBertazoli
 
    GitHub link: https://github.com/TBertazoli/Professional-Readme-Generator
    

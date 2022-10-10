@@ -41,7 +41,7 @@ const generateReadme = results => {
    ${results.test || 'N/A'}
 
    ## Questions
-   For questions please contact ${results.gitHub}.
+   For questions please contact https://github.com/${results.gitHub}
 
    GitHub link: ${results.link}
    

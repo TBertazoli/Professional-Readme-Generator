@@ -67,7 +67,7 @@ const prompQuestions = () => {
         {
             type: 'input',
             name: 'gitHub',
-            message: 'What is your GitHub username (Required)',
+            message: 'What is your GitHub Username (Required)',
             validate: userName => {
                 if (userName) {
                     return true;
