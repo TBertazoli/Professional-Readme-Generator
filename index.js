@@ -80,7 +80,7 @@ const prompQuestions = () => {
         {
             type: 'input',
             name: 'link',
-            message: 'Enter your GitHub link. (Required)',
+            message: 'Enter your GitHub repository link. (Required)',
             validate: linkInput => {
                 if (linkInput) {
                     return true;
@@ -89,6 +89,12 @@ const prompQuestions = () => {
                     return false;
                 }
             }
+        },
+        {
+            type: 'input',
+            name: 'linkDeployed',
+            message: 'Enter the link to your deployed application.',
+           
         },
         {
             type: 'input',

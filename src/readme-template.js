@@ -43,7 +43,9 @@ const generateReadme = results => {
    ## Questions
    For questions please contact https://github.com/${results.gitHub}
 
-   GitHub link: ${results.link}
+   GitHub repository link: ${results.link}
+   
+   ${ results.linkDeployed !== '' ? "GitHub deployed application link: " + results.linkDeployed : ''}
    
    email: ${results.email}
     `

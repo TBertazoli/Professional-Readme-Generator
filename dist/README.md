@@ -1,11 +1,11 @@
      
       
-   # wqwdqw  
+   # AFEFEWFAWE  
 
-   [![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](https://opensource.org/licenses/MIT) 
+   [![License](https://img.shields.io/badge/License-BSD_2--Clause-green.svg)](https://opensource.org/licenses/BSD-2-Clause) 
 
    ## Description
-   dqwdwd
+   EFWAFWEF
     
    ## Table of contents
    - [Installation](#installation)
@@ -17,19 +17,19 @@
    - [Questions](#questions)
 
    ## Installation
-   wddw
+   N/A
    
    ## Usage
-   wdqwdw
+   N/A
    
    ## Credits
-   dqwdqd
+   N/A
   
    ## License
-   This application is covered under MIT license.
+   This application is covered under BSD-2 license.
    
 
-   https://opensource.org/licenses/MIT
+   https://opensource.org/licenses/BSD-2-Clause
 
    ## Contribution
    N/A   
@@ -39,9 +39,11 @@
    N/A
 
    ## Questions
-   For questions please contact https://github.com/tbertazoli
+   For questions please contact https://github.com/eFEFEW
 
-   GitHub link: wdw
+   GitHub repository link: Fewfew
    
-   email: qwdqw
+   GitHub deployed application link: FWEFEWF
+   
+   email: efWEEW
     
